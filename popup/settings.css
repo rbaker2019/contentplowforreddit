@@ -1,0 +1,13 @@
+body {
+    background-color: white;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    opacity: 1;
+    overflow: hidden;
+    padding: 0;
+    white-space: nowrap;
+    width: fit-content;
+    width: -moz-fit-content;
+}
