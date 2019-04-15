@@ -8,8 +8,9 @@
     "permissions": [
         "storage",
         "activeTab",
+        "tabs",
         "contextMenus",
-        "clipboardWrite"
+        "<all_urls>"
     ],
     "icons": {
         "48": "icons/icons8-plow-48.png",
@@ -22,6 +23,7 @@
     },
     "background": {
         "scripts": [
+            "src/clickHandler.js",
             "src/background.js"
         ]
     }
