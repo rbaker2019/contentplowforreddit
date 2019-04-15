@@ -25,8 +25,14 @@ browser.contextMenus.create({
 });
 
 browser.contextMenus.create({
-    id: "submit-text-reddit",
-    title: "Submit this text on Reddit",
+    id: "submit-text-title-reddit",
+    title: "Submit this text as title on Reddit",
+    contexts: ["selection"]
+});
+
+browser.contextMenus.create({
+    id: "submit-text-body-reddit",
+    title: "Submit this text as self post on Reddit",
     contexts: ["selection"]
 });
 
