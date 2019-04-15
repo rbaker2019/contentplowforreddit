@@ -1,4 +1,8 @@
 {
     "moz": true,
-    "browser": true
+    "browser": true,
+    "globals": {
+        "browser": false,
+        "console": false
+    }
 }
