@@ -1,30 +1,31 @@
 function clickHandler(info, tab) {
 
-    let script = '';
+    script = 'let linkBtn = document.getElementsByClassName("link-button choice")[0];\n';
+    script += 'let textBtn = document.getElementsByClassName("text-button choice")[0];\n';
 
     switch (info.menuItemId) {
         case "submit-url-reddit":
-            script += 'document.getElementsByClassName("link-button choice")[0].click();';
+            script += 'linkBtn.click();\n';
             break;
 
         case "submit-link-reddit":
-            script += 'document.getElementsByClassName("link-button choice")[0].click();';
+            script += 'linkBtn.click();\n';
             break;
 
         case "submit-image-link-reddit":
-            script += 'document.getElementsByClassName("link-button choice")[0].click();';
+            script += 'linkBtn.click();\n';
             break;
 
         case "submit-video-link-reddit":
-            script += 'document.getElementsByClassName("link-button choice")[0].click();';
+            script += 'linkBtn.click();\n';
             break;
 
         case "submit-text-title-reddit":
-            script += 'document.getElementsByClassName("text-button choice")[0].click();';
+            script += 'textBtn.click();\n';
             break;
 
         case "submit-text-body-reddit":
-            script += 'document.getElementsByClassName("text-button choice")[0].click();';
+            script += 'textBtn.click();\n';
             break;
 
         default:
