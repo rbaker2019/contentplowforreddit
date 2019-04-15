@@ -1,3 +1,5 @@
+'use strict';
+
 browser.contextMenus.create({
     id: "submit-url-reddit",
     title: "Submit this page on Reddit",
@@ -26,4 +28,9 @@ browser.contextMenus.create({
     id: "submit-text-reddit",
     title: "Submit this text on Reddit",
     contexts: ["selection"]
+});
+
+browser.contextMenus.onClicked.addListener((info, tab) => {
+    console.dir(info);
+    console.dir(tab);
 });
