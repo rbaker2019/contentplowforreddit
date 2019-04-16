@@ -5,6 +5,11 @@
     "description": "Adds a red border to all webpages matching mozilla.org.",
     "homepage_url": "https://github.com/rbaker2019/contentplowforreddit",
     "author": "rbaker2019",
+    "applications": {
+        "gecko": {
+            "id": "contentplowforreddit"
+        }
+    }
     "permissions": [
         "storage",
         "activeTab",
