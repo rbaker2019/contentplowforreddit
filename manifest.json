@@ -9,7 +9,7 @@
         "gecko": {
             "id": "contentplowforreddit"
         }
-    }
+    },
     "permissions": [
         "storage",
         "activeTab",
