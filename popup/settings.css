@@ -11,3 +11,8 @@ body {
     width: fit-content;
     width: -moz-fit-content;
 }
+
+form {
+    margin: 2px;
+    text-align: center;
+}
