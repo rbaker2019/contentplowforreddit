@@ -12,7 +12,6 @@
     },
     "permissions": [
         "storage",
-        "activeTab",
         "tabs",
         "contextMenus",
         "<all_urls>"
@@ -28,7 +27,6 @@
     },
     "background": {
         "scripts": [
-            "src/clickHandler.js",
             "src/background.js"
         ]
     }

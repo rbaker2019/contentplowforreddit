@@ -3,6 +3,7 @@
     "browser": true,
     "globals": {
         "browser": false,
-        "console": false
+        "console": false,
+        "alert": false
     }
 }
