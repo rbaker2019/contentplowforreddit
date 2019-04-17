@@ -19,6 +19,12 @@ browser.contextMenus.create({
 });
 
 browser.contextMenus.create({
+    id: "submit-image-reddit",
+    title: "Submit image on Reddit",
+    contexts: ["image"]
+});
+
+browser.contextMenus.create({
     id: "submit-video-link-reddit",
     title: "Link to video on Reddit",
     contexts: ["video"]
@@ -42,24 +48,34 @@ function clickHandler(info, tab) {
 
     let plowEvent;
 
-    function getPlowLinkEvent(url) {
+    async function getPlowLinkEvent(url) {
         return {
             plowEvent: 'plowLink',
             plowUrl: url
         };
     }
 
-    function getPlowTitleEvent(text) {
+    async function getPlowTitleEvent(text) {
         return {
             plowEvent: 'plowTitle',
             plowText: text
         };
     }
 
-    function getPlowBodyEvent(text) {
+    async function getPlowBodyEvent(text) {
         return {
             plowEvent: 'plowBody',
             plowText: text
+        };
+    }
+
+    async function getPlowImage(imgUrl) {
+        let response = await fetch(imgUrl);
+        let image = await response.blob();
+
+        return {
+            plowEvent: 'plowImage',
+            plowImage: image
         };
     }
 
@@ -74,6 +90,10 @@ function clickHandler(info, tab) {
 
         case 'submit-image-link-reddit':
             plowEvent = getPlowLinkEvent(info.srcUrl);
+            break;
+
+        case 'submit-image-reddit':
+            plowEvent = getPlowImage(info.srcUrl);
             break;
 
         case 'submit-video-link-reddit':
@@ -117,10 +137,10 @@ function clickHandler(info, tab) {
             console.log(`Executing redditHandler script on tab ${newTabId}`);
             return browser.tabs.executeScript(newTabId, { file: 'src/redditHandler.js' });
         })
-        .then((result) => {
-            console.dir(result);
-            console.log(`Sending message to tab ${newTabId}`);
-            console.dir(plowEvent);
-            return browser.tabs.sendMessage(newTabId, plowEvent);
+        .then(() => { return plowEvent; })
+        .then(pEvt => {
+            console.log(`Sending message to tab ${newTabId}: ${pEvt}`);
+            return browser.tabs.sendMessage(newTabId, pEvt);
         });
 }
+

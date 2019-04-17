@@ -14,7 +14,8 @@
         "storage",
         "tabs",
         "contextMenus",
-        "<all_urls>"
+        "<all_urls>",
+        "webRequest"
     ],
     "icons": {
         "48": "icons/icons8-plow-48.png",
