@@ -1,4 +1,6 @@
 # ![plow icon](icons/icons8-plow-32.png) Content Plow for Reddit
+[Available on the Firefox Add-ons registry](https://addons.mozilla.org/en-US/firefox/addon/content-plow-for-reddit/)
+
 A Firefox addon to reduce the number of clicks needed to submit a new link or text post on Reddit.
 
 Uses the old Reddit design submission page for the time being
