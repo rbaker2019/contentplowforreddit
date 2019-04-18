@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Content Plow for Reddit",
-    "version": "0.3",
+    "version": "0.4",
     "description": "Easily create new submissions on Reddit.com",
     "homepage_url": "https://github.com/rbaker2019/contentplowforreddit",
     "author": "rbaker2019",
