@@ -1,5 +1,7 @@
 'use strict';
 
+let permalink;
+
 browser.contextMenus.create({
     id: "submit-url-reddit",
     title: "Link to page on Reddit",
@@ -42,7 +44,19 @@ browser.contextMenus.create({
     contexts: ["selection"]
 });
 
+browser.contextMenus.create({
+    id: "submit-link-tweet-reddit",
+    title: "Link to this tweet on Reddit",
+    contexts: ["page"],
+    documentUrlPatterns: ["*://*.twitter.com/*"]
+});
+
 browser.contextMenus.onClicked.addListener(clickHandler);
+
+browser.runtime.onMessage.addListener(function (message) {
+    permalink = message.value;
+    console.log(permalink);
+});
 
 function clickHandler(info, tab) {
 
@@ -114,6 +128,10 @@ function clickHandler(info, tab) {
                 return;
             }
             plowEvent = getPlowBodyEvent(info.selectionText);
+            break;
+
+        case 'submit-link-tweet-reddit':
+            plowEvent = getPlowLinkEvent(permalink);
             break;
 
         default:
